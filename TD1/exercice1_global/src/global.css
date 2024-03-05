@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,700&display=swap");
+
+:root {
+  /* Primitives Tokens  */
+  --clr-white: 0 0% 100%;
+  --clr-dark-grey: 0 0% 10%;
+  /* Sementics Tokens */
+  --foreground: var(--clr-dark-gray);
+  --background: var(--clr-white);
+
+  --ff-sans: "DM Sans", sans-serif;
+
+  --radius: 0.5rem;
+  --gap: 1rem;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+figure {
+  margin: 0;
+}
+
+/* Base */
+
+body {
+  font-family: var(--ff-sans);
+}
+
+/* Composants */
+
+/* CARD */
+.card {
+  --foreground: var(--clr-dark-grey);
+  --bg-shape: url("bgshapes.svg");
+  display: grid;
+  transition: 0.3s ease-in;
+  cursor: pointer;
+}
+
+.card > * {
+  grid-row: 1/1;
+  grid-column: 1/1;
+}
+
+.card__ct {
+  aspect-ratio: 1/1.25;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.card__image {
+  height: 100%;
+  object-fit: cover;
+}
+
+.card__desc {
+  align-self: end;
+  margin: 1rem 0.5rem 1.5rem;
+  padding: 0.5rem 1rem 0.75rem;
+  color: hsl(var(--foreground) / 0.8);
+  font-size: 1rem;
+  text-align: center;
+  background-image: var(--bg-shape);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: var(--radius);
+}
+
+.card__title {
+  margin-block: 0.5rem;
+  font-size: 1rem;
+}
+
+.card__work {
+  margin-block: 0.5rem;
+
+  color: hsl(var(--foreground) / 0.5);
+  font-size: 0.8rem;
+}
+
+@media screen and (min-width: 45rem) {
+  .card:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* TEAM */
+
+.team {
+  --forground: var(--clr-dark-grey);
+  max-width: 70rem;
+  margin-inline: auto;
+  padding: 1rem;
+  color: hsl(var(--forground));
+  text-align: center;
+}
+
+.team__heading {
+  margin-top: 0.75rem;
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.team__description {
+  max-width: 60ch;
+  margin: 1rem auto 2rem;
+  color: hsl(var(--forground) / 0.7);
+  line-height: 2;
+}
+
+.team__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: var(--gap);
+}
+
+@media screen and (min-width: 45rem) {
+  .team__gallery {
+    gap: calc(var(--gap) * 2);
+  }
+}

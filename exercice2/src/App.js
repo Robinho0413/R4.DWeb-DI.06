@@ -10,7 +10,10 @@ let page = {
   offers: [
     {
       name: "Starter Package",
-      price: "29 999.99",
+      price: {
+        buying : "29 999.99",
+        leasing : "299.99",
+      },
       adv: [
         { isChecked: true, name: "Assurance auto complémentaire" },
         { isChecked: true, name: "Première recharge offerte" },
@@ -28,7 +31,10 @@ let page = {
     },
     {
       name: "Premium Package",
-      price: "35 999.99",
+      price: {
+        buying : "35 999.99",
+        leasing : "359.99",
+      },
       adv: [
         { isChecked: true, name: "Assurance auto complémentaire" },
         { isChecked: true, name: "Première recharge offerte" },
@@ -46,7 +52,10 @@ let page = {
     },
     {
       name: "Prestige Package",
-      price: "49 999.99",
+      price: {
+        buying : "49 999.99",
+        leasing : "499.99",
+      },
       adv: [
         { isChecked: true, name: "Assurance auto complémentaire" },
         { isChecked: true, name: "Première recharge offerte" },
@@ -67,9 +76,15 @@ let page = {
 
 
 function App() {
+
+  let cb_buy = function(){
+    alert("merci pour votre achat")
+
+  }
+
   return (
     <div className="App">
-      <Page {...page} />
+      <Page {...page, cb_buy} />
     </div>
   );
 }

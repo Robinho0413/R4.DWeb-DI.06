@@ -1,0 +1,55 @@
+.card {
+    --foreground: var(--clr-dark-grey);
+    --bg-shape: url("bgshapes.svg");
+    display: grid;
+    transition: 0.3s ease-in;
+    cursor: pointer;
+  }
+  
+  .card > * {
+    grid-row: 1/1;
+    grid-column: 1/1;
+  }
+  
+  .card__ct {
+    aspect-ratio: 1/1.25;
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  
+  .card__image {
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .card__desc {
+    align-self: end;
+    margin: 1rem 0.5rem 1.5rem;
+    padding: 0.5rem 1rem 0.75rem;
+    color: hsl(var(--foreground) / 0.8);
+    font-size: 1rem;
+    text-align: center;
+    background-image: var(--bg-shape);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: var(--radius);
+  }
+  
+  .card__title {
+    margin-block: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  .card__work {
+    margin-block: 0.5rem;
+  
+    color: hsl(var(--foreground) / 0.5);
+    font-size: 0.8rem;
+  }
+  
+  @media screen and (min-width: 45rem) {
+    .card:hover {
+      transform: scale(1.05);
+    }
+  }
